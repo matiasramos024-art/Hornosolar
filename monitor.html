@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Monitoreo del Horno</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>HORNO SOLAR PARA SECADO DE MADERA</h1>
+
+<div id="espera">
+
+<h2>Esperando datos del horno...</h2>
+
+<p>Conectando con Firebase...</p>
+
+</div>
+
+<div class="instrumentos" id="instrumentos" style="display:none;">
+
+<div class="temperatura">
+
+<h2>Temperatura</h2>
+
+<canvas id="velocimetro" width="320" height="220"></canvas>
+
+<p id="valorTemp">0.0 °C</p>
+
+</div>
+
+<div class="humedad">
+
+<h2>Humedad</h2>
+
+<div class="tanque">
+
+<div id="agua"></div>
+
+</div>
+
+<p id="valorHum">0 %</p>
+
+</div>
+
+</div>
+
+<h2 id="estado">APAGADO</h2>
+
+<button id="btnApagar" class="rojo">
+
+APAGAR
+
+</button>
+
+</div>
+
+<script type="module" src="monitor.js"></script>
+
+</body>
+
+</html>

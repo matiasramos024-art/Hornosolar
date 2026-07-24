@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Horno Solar para Secado de Madera</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>HORNO SOLAR PARA SECADO DE MADERA</h1>
+
+    <!-- LOGIN -->
+
+    <div id="login">
+
+        <input
+            id="password"
+            type="password"
+            placeholder="Ingrese la contraseña">
+
+        <br><br>
+
+        <button id="entrar">
+
+            ENTRAR
+
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+    <!-- PANEL PRINCIPAL -->
+
+    <div id="panelControl" style="display:none;">
+
+        <div class="panel">
+
+            <button id="btnIniciar" class="verde">
+
+                INICIAR
+
+            </button>
+
+            <button id="btnApagar" class="rojo">
+
+                APAGAR
+
+            </button>
+
+        </div>
+
+        <p id="mensaje">
+
+            Sistema detenido
+
+        </p>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import {
+
+    iniciarHorno,
+    apagarHorno
+
+} from "./firebase.js";
+
+
+//==============================
+// CONTRASEÑA
+//==============================
+
+const CLAVE="HornoSolar2026";
+
+
+//==============================
+// ELEMENTOS
+//==============================
+
+const login=document.getElementById("login");
+
+const panel=document.getElementById("panelControl");
+
+const pass=document.getElementById("password");
+
+const entrar=document.getElementById("entrar");
+
+const error=document.getElementById("error");
+
+const iniciar=document.getElementById("btnIniciar");
+
+const apagar=document.getElementById("btnApagar");
+
+const mensaje=document.getElementById("mensaje");
+
+
+//==============================
+// LOGIN
+//==============================
+
+entrar.onclick=()=>{
+
+    if(pass.value===CLAVE)
+    {
+
+        login.style.display="none";
+
+        panel.style.display="block";
+
+    }
+
+    else
+    {
+
+        error.innerHTML="Contraseña incorrecta";
+
+        pass.value="";
+
+    }
+
+};
+
+
+//==============================
+// BOTON INICIAR
+//==============================
+
+iniciar.onclick=async()=>{
+
+    mensaje.innerHTML="Enviando comando...";
+
+    try{
+
+        await iniciarHorno();
+
+        mensaje.innerHTML="Horno iniciado";
+
+        setTimeout(()=>{
+
+            window.location.href="monitor.html";
+
+        },800);
+
+    }
+
+    catch(e){
+
+        mensaje.innerHTML="Error al iniciar";
+
+        console.log(e);
+
+    }
+
+};
+
+
+//==============================
+// BOTON APAGAR
+//==============================
+
+apagar.onclick=async()=>{
+
+    mensaje.innerHTML="Enviando comando...";
+
+    try{
+
+        await apagarHorno();
+
+        mensaje.innerHTML="Horno apagado";
+
+    }
+
+    catch(e){
+
+        mensaje.innerHTML="Error al apagar";
+
+        console.log(e);
+
+    }
+
+};
+
+</script>
+
+</body>
+
+</html>
