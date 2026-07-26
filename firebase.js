@@ -3,14 +3,12 @@
 // HORNO SOLAR PARA SECADO DE MADERA
 //==================================================
 
-// Importar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
     getDatabase,
     ref,
     set,
-    get,
     onValue
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
@@ -51,37 +49,37 @@ const db = getDatabase(app);
 // REFERENCIAS
 //==================================================
 
+// Control del horno
 const refEnviar = ref(db, "enviar");
 
-const refTemperatura = ref(db, "horno/temperatura");
-
-const refHumedad = ref(db, "horno/humedad");
-
-const refEstado = ref(db, "horno/estado");
+// Datos enviados por el ESP32
+const refTemperatura = ref(db, "temperatura");
+const refHumedad     = ref(db, "humedad");
+const refEstado      = ref(db, "estado");
 
 
 //==================================================
-// ESCRIBIR EN FIREBASE
+// CONTROL DEL HORNO
 //==================================================
 
 export function iniciarHorno()
 {
-    return set(refEnviar,1);
+    return set(refEnviar, 1);
 }
 
 export function apagarHorno()
 {
-    return set(refEnviar,0);
+    return set(refEnviar, 0);
 }
 
 
 //==================================================
-// LEER TEMPERATURA
+// TEMPERATURA
 //==================================================
 
 export function escucharTemperatura(callback)
 {
-    onValue(refTemperatura,(snapshot)=>
+    onValue(refTemperatura, (snapshot) =>
     {
         callback(snapshot.val());
     });
@@ -89,12 +87,12 @@ export function escucharTemperatura(callback)
 
 
 //==================================================
-// LEER HUMEDAD
+// HUMEDAD
 //==================================================
 
 export function escucharHumedad(callback)
 {
-    onValue(refHumedad,(snapshot)=>
+    onValue(refHumedad, (snapshot) =>
     {
         callback(snapshot.val());
     });
@@ -102,12 +100,12 @@ export function escucharHumedad(callback)
 
 
 //==================================================
-// LEER ESTADO
+// ESTADO
 //==================================================
 
 export function escucharEstado(callback)
 {
-    onValue(refEstado,(snapshot)=>
+    onValue(refEstado, (snapshot) =>
     {
         callback(snapshot.val());
     });
