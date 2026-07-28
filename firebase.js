@@ -9,6 +9,7 @@ import {
     getDatabase,
     ref,
     set,
+    update,
     onValue
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
@@ -64,12 +65,18 @@ const refEstado      = ref(db, "estado");
 
 export function iniciarHorno()
 {
-    return set(refEnviar, 1);
+    return update(ref(db),{
+        enviar:1,
+        estado:"FUNCIONANDO"
+    });
 }
 
 export function apagarHorno()
 {
-    return set(refEnviar, 0);
+    return update(ref(db),{
+        enviar:0,
+        estado:"APAGADO"
+    });
 }
 
 
