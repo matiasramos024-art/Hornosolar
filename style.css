@@ -1,6 +1,6 @@
-/*==================================================
-    HORNO SOLAR
-    DISEÑO INDUSTRIAL
+/*=================================================
+      HORNO SOLAR 2.0
+      ESTILO INDUSTRIAL
 ==================================================*/
 
 *{
@@ -9,9 +9,13 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 
     color:white;
 
@@ -23,492 +27,200 @@ body{
 
     align-items:center;
 
+    padding:20px;
+
     overflow-x:hidden;
 
     background:
-
-    linear-gradient(90deg,#5b5b5b 0%,#777 50%,#5b5b5b 100%);
+    linear-gradient(
+        90deg,
+        #4b4b4b 0%,
+        #777777 20%,
+        #9a9a9a 50%,
+        #777777 80%,
+        #4b4b4b 100%
+    );
 
 }
 
-/*=========================================
-      PANEL METÁLICO
-=========================================*/
+
+/*=================================================
+            PANEL PRINCIPAL
+==================================================*/
 
 .contenedor{
 
     position:relative;
 
-    width:min(95%,1200px);
+    width:100%;
+
+    max-width:1200px;
 
     min-height:95vh;
 
-    padding:35px;
+    padding:40px;
 
-    background:
-
-    linear-gradient(145deg,#3b3b3b,#232323);
-
-    border:4px solid #8b8b8b;
-
-    box-shadow:
-
-    0 0 25px black,
-
-    inset 0 0 25px rgba(255,255,255,.08);
+    border-radius:8px;
 
     overflow:hidden;
 
+    background:
+    linear-gradient(
+        145deg,
+        #434343,
+        #262626
+    );
+
+    border:4px solid #9b9b9b;
+
+    box-shadow:
+
+    0 0 30px rgba(0,0,0,.6),
+
+    inset 0 0 25px rgba(255,255,255,.08);
+
 }
-/*=========================================
-      PANEL CUADRICULADO
-=========================================*/
+
+
+/*=================================================
+        TEXTURA METÁLICA
+==================================================*/
 
 .contenedor::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-background:
+    background:
 
-linear-gradient(rgba(255,255,255,.04) 2px,transparent 2px),
+    linear-gradient(
+        rgba(255,255,255,.03) 2px,
+        transparent 2px
+    ),
 
-linear-gradient(90deg,rgba(255,255,255,.04) 2px,transparent 2px);
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.03) 2px,
+        transparent 2px
+    );
 
-background-size:120px 120px;
+    background-size:90px 90px;
 
-pointer-events:none;
+    opacity:.35;
 
-opacity:.4;
+    pointer-events:none;
 
 }
-/*=========================================
-       CIRCUITOS DECORATIVOS
-=========================================*/
+
+
+/*=================================================
+      LÍNEAS INDUSTRIALES
+==================================================*/
 
 .contenedor::after{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-background:
+    pointer-events:none;
 
-linear-gradient(90deg,
+    opacity:.30;
 
-transparent 8%,
+    background:
 
-rgba(255,0,0,.35) 8%,
+    linear-gradient(
+        90deg,
+        transparent 10%,
+        rgba(255,0,0,.45) 10.2%,
+        transparent 10.4%
+    ),
 
-rgba(255,0,0,.35) 8.5%,
+    linear-gradient(
+        90deg,
+        transparent 72%,
+        rgba(255,0,0,.30) 72.2%,
+        transparent 72.4%
+    ),
 
-transparent 8.5%),
-
-
-linear-gradient(
-
-180deg,
-
-transparent 28%,
-
-rgba(0,180,255,.35) 28%,
-
-rgba(0,180,255,.35) 28.5%,
-
-transparent 28.5%),
-
-
-linear-gradient(
-
-90deg,
-
-transparent 70%,
-
-rgba(255,0,0,.25) 70%,
-
-rgba(255,0,0,.25) 70.5%,
-
-transparent 70.5%);
-
-pointer-events:none;
+    linear-gradient(
+        180deg,
+        transparent 32%,
+        rgba(0,180,255,.45) 32.2%,
+        transparent 32.4%
+    );
 
 }
+
+
+/*=================================================
+                 TITULO
+==================================================*/
+
 h1{
-
-text-align:center;
-
-font-size:3rem;
-
-margin-bottom:35px;
-
-color:#d8b14d;
-
-text-shadow:
-
-0 0 12px rgba(255,215,0,.35);
-
-font-weight:bold;
-
-letter-spacing:2px;
-
-}
-/*=========================================
-      PANEL DE INSTRUMENTOS
-=========================================*/
-
-.instrumentos{
-
-    display:flex;
-
-    justify-content:space-evenly;
-
-    align-items:flex-start;
-
-    gap:40px;
-
-    flex-wrap:wrap;
-
-    margin-top:20px;
 
     position:relative;
 
     z-index:5;
 
+    text-align:center;
+
+    margin-bottom:40px;
+
+    color:#d9b34a;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    line-height:1.15;
+
+    font-size:clamp(2rem,5vw,3.6rem);
+
+    text-shadow:
+
+    0 0 10px rgba(255,210,90,.30),
+
+    0 0 20px rgba(255,210,90,.15);
+
 }
-.temperatura,
-.humedad{
+
+
+/*=================================================
+            PANTALLA DE ESPERA
+==================================================*/
+
+#espera{
 
     position:relative;
 
-    width:420px;
+    z-index:5;
 
-    min-height:520px;
+    text-align:center;
 
-    padding:25px;
-
-    border-radius:18px;
-
-    background:
-    linear-gradient(145deg,#5d5d5d,#2b2b2b);
-
-    border:3px solid #9b9b9b;
-
-    box-shadow:
-
-    inset 0 0 20px rgba(255,255,255,.08),
-
-    0 10px 25px rgba(0,0,0,.45);
+    margin-top:80px;
 
 }
-.temperatura::before,
-.humedad::before{
 
-content:"";
+#espera h2{
 
-position:absolute;
+    font-size:2rem;
 
-top:12px;
-left:12px;
+    color:#d8d8d8;
 
-width:16px;
-height:16px;
-
-border-radius:50%;
-
-background:#d9d9d9;
-
-box-shadow:
-
-0 0 3px black,
-
-390px 0 #d9d9d9,
-
-0 470px #d9d9d9,
-
-390px 470px #d9d9d9;
-
-}
-.temperatura h2{
-
-text-align:center;
-
-font-size:2rem;
-
-margin-bottom:18px;
-
-color:#ff8c00;
-
-text-shadow:
-
-0 0 10px rgba(255,140,0,.45);
-
-letter-spacing:1px;
-
-}
-.humedad h2{
-
-text-align:center;
-
-font-size:2rem;
-
-margin-bottom:18px;
-
-color:#00c8ff;
-
-text-shadow:
-
-0 0 10px rgba(0,200,255,.45);
-
-letter-spacing:1px;
-
-}
-#velocimetro{
-
-display:block;
-
-margin:auto;
-
-width:100%;
-
-max-width:320px;
-
-height:auto;
-
-}
-#valorTemp{
-
-margin-top:18px;
-
-font-size:3rem;
-
-text-align:center;
-
-font-weight:bold;
-
-color:white;
-
-text-shadow:
-
-0 0 15px rgba(255,255,255,.2);
-
-}
-.tanque{
-
-margin:auto;
-
-margin-top:10px;
-
-width:120px;
-
-height:280px;
-
-border-radius:10px;
-
-overflow:hidden;
-
-background:#f3f3f3;
-
-border:5px solid #111;
-
-box-shadow:
-
-inset 0 0 15px rgba(0,0,0,.3);
-  
-position:relative;
-  
-}
-#agua{
-
-width:100%;
-
-height:0;
-
-position:absolute;
-
-bottom:0;
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#58d7ff,
-
-#2196f3);
-
-transition:height .8s;
-
-}
-#valorHum{
-
-margin-top:18px;
-
-font-size:3rem;
-
-font-weight:bold;
-
-text-align:center;
-
-color:white;
-
-}
-#estado{
-
-margin-top:35px;
-
-text-align:center;
-
-font-size:2.2rem;
-
-font-weight:bold;
-
-letter-spacing:2px;
-
-text-shadow:
-
-0 0 15px currentColor;
-
-}
-#btnApagar{
-
-display:block;
-
-margin:35px auto;
-
-width:260px;
-
-padding:18px;
-
-font-size:1.5rem;
-
-font-weight:bold;
-
-border:none;
-
-border-radius:15px;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:
-
-0 8px 15px rgba(0,0,0,.4);
-
-}
-.rojo{
-
-background:#d52d2d;
-
-color:white;
+    margin-bottom:20px;
 
 }
 
-.rojo:hover{
+#espera p{
 
-background:#ff4444;
+    font-size:1.2rem;
 
-transform:translateY(-4px);
-
-}
-@media (max-width:768px){
-
-.instrumentos{
-    flex-direction:column;
-    align-items:center;
-}
-
-.panel{
-    width:90%;
-    max-width:360px;
-}
-
-}
-
-.temperatura,
-.humedad{
-
-width:95%;
-
-max-width:420px;
-
-min-height:auto;
-
-}
-
-#valorTemp,
-#valorHum{
-
-font-size:2.4rem;
-
-}
-
-.tanque{
-
-height:220px;
-
-width:90px;
-
-}
-
-#btnApagar{
-
-width:220px;
-
-}
-
-}
-.panelInstrumento{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-margin-top:10px;
-
-}
-.panelEstado{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:15px;
-
-margin-top:35px;
-
-}
-.ledEstado{
-
-width:18px;
-
-height:18px;
-
-border-radius:50%;
-
-background:#ff2d2d;
-
-box-shadow:0 0 12px #ff2d2d;
-
-}
-.panelBoton{
-
-display:flex;
-
-justify-content:center;
-
-margin-top:20px;
+    color:#aaaaaa;
 
 }
