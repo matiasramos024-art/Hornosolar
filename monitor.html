@@ -17,51 +17,81 @@
 
 <div class="contenedor">
 
-<h1>HORNO SOLAR PARA SECADO DE MADERA</h1>
+    <h1>HORNO SOLAR PARA SECADO DE MADERA</h1>
 
-<div id="espera">
+    <!-- Mensaje de espera -->
 
-<h2>Esperando datos del horno...</h2>
+    <div id="espera">
 
-<p>Conectando con Firebase...</p>
+        <h2>Esperando datos del horno...</h2>
 
-</div>
+        <p>Conectando con Firebase...</p>
 
-<div class="instrumentos" id="instrumentos" style="display:none;">
+    </div>
 
-<div class="temperatura">
+    <!-- Instrumentos -->
 
-<h2>Temperatura</h2>
+    <div class="instrumentos" id="instrumentos" style="display:none;">
 
-<canvas id="velocimetro" width="320" height="220"></canvas>
+        <!-- Panel Temperatura -->
 
-<p id="valorTemp">0.0 °C</p>
+        <div class="temperatura">
 
-</div>
+            <h2>🌡 TEMPERATURA</h2>
 
-<div class="humedad">
+            <div class="panelInstrumento">
 
-<h2>Humedad</h2>
+                <canvas id="velocimetro" width="320" height="220"></canvas>
 
-<div class="tanque">
+                <p id="valorTemp">0.0 °C</p>
 
-<div id="agua"></div>
+            </div>
 
-</div>
+        </div>
 
-<p id="valorHum">0 %</p>
+        <!-- Panel Humedad -->
 
-</div>
+        <div class="humedad">
 
-</div>
+            <h2>💧 HUMEDAD</h2>
 
-<h2 id="estado">APAGADO</h2>
+            <div class="panelInstrumento">
 
-<button id="btnApagar" class="rojo">
+                <div class="tanque">
 
-APAGAR
+                    <div id="agua"></div>
 
-</button>
+                </div>
+
+                <p id="valorHum">0 %</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Estado -->
+
+    <div class="panelEstado">
+
+        <span class="ledEstado"></span>
+
+        <h2 id="estado">APAGADO</h2>
+
+    </div>
+
+    <!-- Botón -->
+
+    <div class="panelBoton">
+
+        <button id="btnApagar" class="rojo">
+
+            APAGAR
+
+        </button>
+
+    </div>
 
 </div>
 
