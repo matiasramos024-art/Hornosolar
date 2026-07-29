@@ -224,3 +224,642 @@ h1{
     color:#aaaaaa;
 
 }
+/*=================================================
+            PANEL DE INSTRUMENTOS
+==================================================*/
+
+.instrumentos{
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    gap:50px;
+
+    margin-top:25px;
+
+}
+
+
+/*=================================================
+          TARJETAS DE INSTRUMENTOS
+==================================================*/
+
+.temperatura,
+.humedad{
+
+    position:relative;
+
+    flex:1;
+
+    max-width:430px;
+
+    min-height:520px;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #5c5c5c,
+        #2d2d2d
+    );
+
+    border:3px solid #969696;
+
+    box-shadow:
+
+    inset 0 0 18px rgba(255,255,255,.08),
+
+    0 8px 20px rgba(0,0,0,.45);
+
+}
+
+
+/*=================================================
+               TORNILLOS
+==================================================*/
+
+.temperatura::before,
+.humedad::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+    radial-gradient(circle at 18px 18px,#d8d8d8 0 7px,transparent 8px),
+
+    radial-gradient(circle at calc(100% - 18px) 18px,#d8d8d8 0 7px,transparent 8px),
+
+    radial-gradient(circle at 18px calc(100% - 18px),#d8d8d8 0 7px,transparent 8px),
+
+    radial-gradient(circle at calc(100% - 18px) calc(100% - 18px),#d8d8d8 0 7px,transparent 8px);
+
+}
+
+
+/*=================================================
+            TITULOS DE LOS PANELES
+==================================================*/
+
+.temperatura h2,
+.humedad h2{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+    letter-spacing:1px;
+
+}
+
+.temperatura h2{
+
+    color:#ff9a1a;
+
+    text-shadow:
+
+    0 0 10px rgba(255,140,0,.45);
+
+}
+
+.humedad h2{
+
+    color:#38d7ff;
+
+    text-shadow:
+
+    0 0 10px rgba(0,200,255,.45);
+
+}
+
+
+/*=================================================
+          CONTENIDO INTERNO
+==================================================*/
+
+.temperatura{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.humedad{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+/*=================================================
+      VALORES NUMÉRICOS
+==================================================*/
+
+#valorTemp,
+#valorHum{
+
+    margin-top:20px;
+
+    font-size:3rem;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-align:center;
+
+    text-shadow:
+
+    0 0 10px rgba(255,255,255,.25);
+
+}
+/*=================================================
+              VELOCÍMETRO
+==================================================*/
+
+#velocimetro{
+
+    display:block;
+
+    margin:20px auto;
+
+    width:100%;
+
+    max-width:320px;
+
+    aspect-ratio:16/11;
+
+    height:auto;
+
+}
+
+
+/*=================================================
+           CONTENEDOR DEL TANQUE
+==================================================*/
+
+.tanque{
+
+    position:relative;
+
+    margin:20px auto;
+
+    width:110px;
+
+    height:280px;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    background:#f2f2f2;
+
+    border:4px solid #181818;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(0,0,0,.25),
+
+    0 4px 12px rgba(0,0,0,.45);
+
+}
+
+
+/*=================================================
+              NIVEL DE AGUA
+==================================================*/
+
+#agua{
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:0%;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #6ee6ff 0%,
+        #32b9ff 45%,
+        #1976d2 100%
+    );
+
+    transition:height .8s ease;
+
+}
+
+
+/*=================================================
+            EFECTO DE BRILLO
+==================================================*/
+
+#agua::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:10%;
+
+    top:0;
+
+    width:18%;
+
+    height:100%;
+
+    background:
+
+    rgba(255,255,255,.30);
+
+    filter:blur(2px);
+
+}
+
+
+/*=================================================
+          ESCALA DEL TANQUE
+==================================================*/
+
+.tanque::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:-12px;
+
+    top:10px;
+
+    width:8px;
+
+    height:250px;
+
+    background:
+
+    repeating-linear-gradient(
+
+        to bottom,
+
+        transparent 0px,
+
+        transparent 16px,
+
+        #444 16px,
+
+        #444 18px
+
+    );
+
+}
+
+
+/*=================================================
+         EFECTO DE VIDRIO
+==================================================*/
+
+.tanque::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        rgba(255,255,255,.25),
+
+        transparent 30%,
+
+        transparent 70%,
+
+        rgba(255,255,255,.12)
+
+    );
+
+    pointer-events:none;
+
+}
+/*=================================================
+                PANEL ESTADO
+==================================================*/
+
+#estado{
+
+    position:relative;
+
+    z-index:5;
+
+    margin-top:40px;
+
+    text-align:center;
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    color:#ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.25);
+
+}
+
+
+/*=================================================
+                 BOTÓN
+==================================================*/
+
+#btnApagar{
+
+    display:block;
+
+    margin:30px auto 10px auto;
+
+    width:260px;
+
+    max-width:90%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:1.4rem;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff5656,
+            #ba1010
+        );
+
+    box-shadow:
+
+        0 6px 18px rgba(0,0,0,.45);
+
+}
+
+#btnApagar:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 10px 22px rgba(0,0,0,.55);
+
+}
+
+#btnApagar:active{
+
+    transform:scale(.98);
+
+}
+
+
+/*=================================================
+           ESTADO DE ESPERA
+==================================================*/
+
+#espera{
+
+    width:100%;
+
+    padding:60px 20px;
+
+}
+
+
+/*=================================================
+          RESPONSIVE TABLET
+==================================================*/
+
+@media (max-width:1000px){
+
+    .instrumentos{
+
+        gap:30px;
+
+    }
+
+    .temperatura,
+    .humedad{
+
+        max-width:360px;
+
+    }
+
+}
+
+
+/*=================================================
+          RESPONSIVE CELULAR
+==================================================*/
+
+@media (max-width:768px){
+
+body{
+
+    padding:10px;
+
+}
+
+.contenedor{
+
+    padding:20px;
+
+    min-height:auto;
+
+}
+
+h1{
+
+    font-size:2rem;
+
+    line-height:1.2;
+
+    margin-bottom:25px;
+
+}
+
+.instrumentos{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.temperatura,
+.humedad{
+
+    width:100%;
+
+    max-width:420px;
+
+    min-height:auto;
+
+    padding:20px;
+
+}
+
+.temperatura h2,
+.humedad h2{
+
+    font-size:1.6rem;
+
+}
+
+#velocimetro{
+
+    max-width:260px;
+
+}
+
+.tanque{
+
+    width:90px;
+
+    height:220px;
+
+}
+
+#valorTemp,
+#valorHum{
+
+    font-size:2.2rem;
+
+}
+
+#estado{
+
+    font-size:1.5rem;
+
+    margin-top:25px;
+
+}
+
+#btnApagar{
+
+    width:100%;
+
+    max-width:300px;
+
+    font-size:1.2rem;
+
+    padding:16px;
+
+}
+
+}
+
+
+/*=================================================
+       RESPONSIVE TELÉFONOS PEQUEÑOS
+==================================================*/
+
+@media (max-width:420px){
+
+.contenedor{
+
+    padding:15px;
+
+}
+
+h1{
+
+    font-size:1.6rem;
+
+}
+
+.temperatura,
+.humedad{
+
+    padding:15px;
+
+}
+
+#velocimetro{
+
+    max-width:220px;
+
+}
+
+.tanque{
+
+    width:75px;
+
+    height:190px;
+
+}
+
+#valorTemp,
+#valorHum{
+
+    font-size:1.8rem;
+
+}
+
+#estado{
+
+    font-size:1.3rem;
+
+}
+
+#btnApagar{
+
+    font-size:1rem;
+
+    padding:14px;
+
+}
+
+}
