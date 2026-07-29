@@ -863,3 +863,131 @@ h1{
 }
 
 }
+/*=================================================
+                LOGIN (INDEX.HTML)
+==================================================*/
+
+#login{
+    position:relative;
+    z-index:10;
+    width:100%;
+    max-width:450px;
+    margin:40px auto;
+    text-align:center;
+}
+
+#password{
+    width:100%;
+    padding:16px;
+    font-size:1.2rem;
+    color:#fff;
+    background:#2f2f2f;
+    border:2px solid #8b8b8b;
+    border-radius:10px;
+    outline:none;
+    transition:.25s;
+}
+
+#password:focus{
+    border-color:#d9b34a;
+    box-shadow:0 0 12px rgba(217,179,74,.45);
+}
+
+#entrar{
+    margin-top:20px;
+    width:220px;
+    padding:16px;
+    font-size:1.2rem;
+    font-weight:bold;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:linear-gradient(180deg,#2fb64c,#167d2f);
+    transition:.25s;
+    box-shadow:0 6px 15px rgba(0,0,0,.45);
+}
+
+#entrar:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.5);
+}
+
+#entrar:active{
+    transform:scale(.98);
+}
+
+#error{
+    margin-top:15px;
+    color:#ff5b5b;
+    font-weight:bold;
+    min-height:24px;
+}
+
+#panelControl{
+    position:relative;
+    z-index:10;
+    text-align:center;
+}
+
+.panel{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin:30px 0;
+}
+
+.verde{
+    background:linear-gradient(180deg,#32c95a,#15813b);
+    color:white;
+}
+
+.rojo{
+    background:linear-gradient(180deg,#ff5555,#b21515);
+    color:white;
+}
+
+.panel button{
+    width:220px;
+    padding:18px;
+    border:none;
+    border-radius:14px;
+    font-size:1.2rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 6px 15px rgba(0,0,0,.45);
+}
+
+.panel button:hover{
+    transform:translateY(-3px);
+}
+
+#mensaje{
+    margin-top:25px;
+    font-size:1.3rem;
+    color:#d9d9d9;
+}
+
+@media (max-width:768px){
+
+    #password{
+        font-size:1rem;
+    }
+
+    #entrar{
+        width:100%;
+        max-width:280px;
+    }
+
+    .panel{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .panel button{
+        width:100%;
+        max-width:280px;
+    }
+}
