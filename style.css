@@ -1,257 +1,468 @@
+/*==================================================
+    HORNO SOLAR
+    DISEÑO INDUSTRIAL
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
 
-margin:0;
+    font-family:Arial,Helvetica,sans-serif;
 
-font-family:Arial;
+    color:white;
 
-background:
-repeating-linear-gradient(
-90deg,
-#6d6d6d 0px,
-#7d7d7d 40px,
-#5b5b5b 80px
-);
+    min-height:100vh;
 
-height:100vh;
+    display:flex;
 
-display:flex;
+    justify-content:center;
 
-justify-content:center;
+    align-items:center;
 
-align-items:center;
+    overflow-x:hidden;
+
+    background:
+
+    linear-gradient(90deg,#5b5b5b 0%,#777 50%,#5b5b5b 100%);
 
 }
+
+/*=========================================
+      PANEL METÁLICO
+=========================================*/
 
 .contenedor{
 
-width:500px;
+    position:relative;
 
-padding:40px;
+    width:min(95%,1200px);
 
-background:#2e2e2e;
+    min-height:95vh;
 
-border:4px solid black;
+    padding:35px;
+
+    background:
+
+    linear-gradient(145deg,#3b3b3b,#232323);
+
+    border:4px solid #8b8b8b;
+
+    box-shadow:
+
+    0 0 25px black,
+
+    inset 0 0 25px rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+}
+/*=========================================
+      PANEL CUADRICULADO
+=========================================*/
+
+.contenedor::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(rgba(255,255,255,.04) 2px,transparent 2px),
+
+linear-gradient(90deg,rgba(255,255,255,.04) 2px,transparent 2px);
+
+background-size:120px 120px;
+
+pointer-events:none;
+
+opacity:.4;
+
+}
+/*=========================================
+       CIRCUITOS DECORATIVOS
+=========================================*/
+
+.contenedor::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(90deg,
+
+transparent 8%,
+
+rgba(255,0,0,.35) 8%,
+
+rgba(255,0,0,.35) 8.5%,
+
+transparent 8.5%),
+
+
+linear-gradient(
+
+180deg,
+
+transparent 28%,
+
+rgba(0,180,255,.35) 28%,
+
+rgba(0,180,255,.35) 28.5%,
+
+transparent 28.5%),
+
+
+linear-gradient(
+
+90deg,
+
+transparent 70%,
+
+rgba(255,0,0,.25) 70%,
+
+rgba(255,0,0,.25) 70.5%,
+
+transparent 70.5%);
+
+pointer-events:none;
+
+}
+h1{
 
 text-align:center;
 
-box-shadow:0px 0px 30px black;
+font-size:3rem;
 
-}
+margin-bottom:35px;
 
-h1{
+color:#d8b14d;
 
-color:#c7a64b;
+text-shadow:
 
-font-size:30px;
-
-margin-bottom:50px;
-
-}
-
-.panel{
-
-display:flex;
-
-justify-content:space-around;
-
-}
-
-button{
-
-width:170px;
-
-height:70px;
-
-font-size:22px;
+0 0 12px rgba(255,215,0,.35);
 
 font-weight:bold;
 
-cursor:pointer;
-
-border:none;
-
-border-radius:8px;
+letter-spacing:2px;
 
 }
-
-.verde{
-
-background:#28a745;
-
-color:white;
-
-}
-
-.rojo{
-
-background:#d63031;
-
-color:white;
-
-}
-
-#mensaje{
-
-margin-top:40px;
-
-color:white;
-
-font-size:22px;
-
-}
+/*=========================================
+      PANEL DE INSTRUMENTOS
+=========================================*/
 
 .instrumentos{
 
-display:flex;
+    display:flex;
 
-justify-content:space-around;
+    justify-content:space-evenly;
 
-align-items:center;
+    align-items:flex-start;
 
-margin-top:30px;
+    gap:40px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+
+    position:relative;
+
+    z-index:5;
 
 }
-
-.temperatura{
-
-width:45%;
-
-}
-
+.temperatura,
 .humedad{
 
-width:45%;
+    position:relative;
+
+    width:420px;
+
+    min-height:520px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(145deg,#5d5d5d,#2b2b2b);
+
+    border:3px solid #9b9b9b;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(255,255,255,.08),
+
+    0 10px 25px rgba(0,0,0,.45);
 
 }
+.temperatura::before,
+.humedad::before{
 
-.tanque{
+content:"";
 
-width:120px;
+position:absolute;
 
-height:220px;
+top:12px;
+left:12px;
+
+width:16px;
+height:16px;
+
+border-radius:50%;
+
+background:#d9d9d9;
+
+box-shadow:
+
+0 0 3px black,
+
+390px 0 #d9d9d9,
+
+0 470px #d9d9d9,
+
+390px 470px #d9d9d9;
+
+}
+.temperatura h2{
+
+text-align:center;
+
+font-size:2rem;
+
+margin-bottom:18px;
+
+color:#ff8c00;
+
+text-shadow:
+
+0 0 10px rgba(255,140,0,.45);
+
+letter-spacing:1px;
+
+}
+.humedad h2{
+
+text-align:center;
+
+font-size:2rem;
+
+margin-bottom:18px;
+
+color:#00c8ff;
+
+text-shadow:
+
+0 0 10px rgba(0,200,255,.45);
+
+letter-spacing:1px;
+
+}
+#velocimetro{
+
+display:block;
 
 margin:auto;
 
-border:4px solid black;
+width:100%;
 
-background:white;
+max-width:320px;
+
+height:auto;
+
+}
+#valorTemp{
+
+margin-top:18px;
+
+font-size:3rem;
+
+text-align:center;
+
+font-weight:bold;
+
+color:white;
+
+text-shadow:
+
+0 0 15px rgba(255,255,255,.2);
+
+}
+.tanque{
+
+margin:auto;
+
+margin-top:10px;
+
+width:120px;
+
+height:280px;
+
+border-radius:10px;
 
 overflow:hidden;
 
+background:#f3f3f3;
+
+border:5px solid #111;
+
+box-shadow:
+
+inset 0 0 15px rgba(0,0,0,.3);
+  
 position:relative;
-
+  
 }
-
 #agua{
+
+width:100%;
+
+height:0;
 
 position:absolute;
 
 bottom:0;
 
-width:100%;
+background:
 
-height:0%;
+linear-gradient(
 
-background:#3498db;
+180deg,
 
-transition:height 1s;
+#58d7ff,
 
-}
+#2196f3);
 
-#valorTemp{
-
-font-size:28px;
-
-font-weight:bold;
-
-color:white;
+transition:height .8s;
 
 }
-
 #valorHum{
 
-font-size:28px;
+margin-top:18px;
+
+font-size:3rem;
 
 font-weight:bold;
 
+text-align:center;
+
 color:white;
 
 }
-
 #estado{
 
-color:#00ff00;
-
-margin-top:30px;
-
-}
-
-#espera{
-
-color:white;
-
-padding:50px;
-
-font-size:24px;
+margin-top:35px;
 
 text-align:center;
 
-animation:parpadeo 1s infinite;
+font-size:2.2rem;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+text-shadow:
+
+0 0 15px currentColor;
 
 }
+#btnApagar{
 
-@keyframes parpadeo{
+display:block;
 
-0%{opacity:1;}
+margin:35px auto;
 
-50%{opacity:0.4;}
+width:260px;
 
-100%{opacity:1;}
+padding:18px;
 
-}
+font-size:1.5rem;
 
-input{
-
-width:250px;
-
-height:45px;
-
-font-size:20px;
-
-text-align:center;
-
-border-radius:8px;
+font-weight:bold;
 
 border:none;
 
-}
-
-#entrar{
-
-background:#0066cc;
-
-color:white;
-
-width:180px;
-
-height:60px;
-
-font-size:22px;
+border-radius:15px;
 
 cursor:pointer;
 
-border:none;
+transition:.3s;
 
-border-radius:8px;
+box-shadow:
+
+0 8px 15px rgba(0,0,0,.4);
+
+}
+.rojo{
+
+background:#d52d2d;
+
+color:white;
 
 }
 
-#error{
+.rojo:hover{
 
-color:#ff5555;
+background:#ff4444;
 
-font-size:20px;
+transform:translateY(-4px);
 
-height:25px;
+}
+@media(max-width:900px){
+
+h1{
+
+font-size:2.2rem;
+
+}
+
+.instrumentos{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.temperatura,
+.humedad{
+
+width:95%;
+
+max-width:420px;
+
+min-height:auto;
+
+}
+
+#valorTemp,
+#valorHum{
+
+font-size:2.4rem;
+
+}
+
+.tanque{
+
+height:220px;
+
+width:90px;
+
+}
+
+#btnApagar{
+
+width:220px;
+
+}
 
 }
