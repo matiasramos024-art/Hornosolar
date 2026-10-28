@@ -54,8 +54,8 @@ const db = getDatabase(app);
 const refEnviar = ref(db, "enviar");
 
 // Datos enviados por el ESP32
-const refTemperatura = ref(db, "temperatura");
-const refHumedad     = ref(db, "humedad");
+const refTemperatura = ref(db, "Temperatura");
+const refHumedad     = ref(db, "Humedad");
 const refEstado      = ref(db, "estado");
 
 
