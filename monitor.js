@@ -26,6 +26,12 @@ function dibujarVelocimetro(temp)
     ctx.clearRect(0,0,320,220);
 
     //---------------------------------
+    // Limitar temperatura entre 0 y 100
+    //---------------------------------
+
+    temp = Math.max(0, Math.min(100, temp));
+
+    //---------------------------------
     // Arco principal
     //---------------------------------
 
@@ -43,7 +49,7 @@ function dibujarVelocimetro(temp)
     ctx.stroke();
 
     //---------------------------------
-    // Marcas
+    // Marcas 0 - 100
     //---------------------------------
 
     ctx.strokeStyle="white";
@@ -53,7 +59,6 @@ function dibujarVelocimetro(temp)
 
     for(let i=0;i<=10;i++)
     {
-
         let ang=Math.PI+(i*Math.PI/10);
 
         let x1=160+Math.cos(ang)*102;
@@ -65,26 +70,24 @@ function dibujarVelocimetro(temp)
         ctx.beginPath();
         ctx.moveTo(x1,y1);
         ctx.lineTo(x2,y2);
+
         ctx.lineWidth=3;
         ctx.stroke();
 
-        if(i<10)
-        {
-            let numero=i*5;
+        // Valores: 0, 10, 20...100
+        let numero=i*10;
 
-            let xn=160+Math.cos(ang)*85;
-            let yn=170+Math.sin(ang)*85+5;
+        let xn=160+Math.cos(ang)*85;
+        let yn=170+Math.sin(ang)*85+5;
 
-            ctx.fillText(numero,xn,yn);
-        }
-
+        ctx.fillText(numero,xn,yn);
     }
 
     //---------------------------------
-    // Aguja
+    // Aguja 0 - 100
     //---------------------------------
 
-    let angulo=Math.PI+(temp/50)*Math.PI;
+    let angulo=Math.PI+(temp/100)*Math.PI;
 
     let x=160+Math.cos(angulo)*90;
     let y=170+Math.sin(angulo)*90;
@@ -104,6 +107,7 @@ function dibujarVelocimetro(temp)
 
     ctx.beginPath();
     ctx.arc(160,170,10,0,2*Math.PI);
+
     ctx.fillStyle="#ff2222";
     ctx.fill();
 
